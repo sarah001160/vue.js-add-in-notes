@@ -1,0 +1,41 @@
+body,html{
+    width:1270px;
+    margin:0;
+    text-align:left;
+}
+
+#app{
+    width:100%;
+    margin:0 auto;   
+}
+
+#testComponent{
+height:100px;
+background-color:yellow;
+}
+
+.bgcolor{
+    background:red;
+
+}
+
+/*----notebooks setting css----*/
+h1{
+    font-weight:bold;
+    margin-left:100px;
+    margin-top:20px;
+}
+li{
+    display:block;
+}
+
+.addNotes{
+    width:800px;
+    height:50px;
+    margin-top:20px;
+    margin-left:100px;
+}
+.show{
+    margin-left:100px;
+    margin-top:20px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><!--BS4-->
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="all.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js'></script>
+  <title>Document</title>
+</head>
+
+<body>
+<div id="app">
+    <h1>歡迎來到,沒有任何儲存功能的記事本</h1>
+    <input class="addNotes" type="text" v-model="newText" @keyup.enter="addTodo" placeholder="輸入想要記下的事情以後按下enter鍵即可">
+    <div class="show">
+        <ul>
+            <li v-for="(item,key) in todos">{{key+1}}. {{item.title}}</li> <!--用for迴圈顯示陣列裡的title內容,li會隨著陣列裡的物件多寡增加---->
+        </ul>
+    </div>
+
+ </div>
+   
+
+
+
+<script>
+var app = new Vue({
+ el:'#app',
+ data:{
+   item:{
+     tile:'顯示抬頭',
+     content:'顯示內容',
+     },
+ color:'bgcolor',
+ newText:'',
+ todos:[
+         {
+            id:'123',
+            title:'123',
+            completed:false
+        },
+    ]
+ },
+ methods:{
+     addTodo:function(){
+         var value=this.newText.trim();
+         var timestamp= Math.floor(Date.now());//用時間當作id,時間一去不復返,所以絕對不可能有資料的id會重複
+         if(!value){return}
+        this.todos.push({
+            id:timestamp,
+            title:value,
+            compelted:false,
+        })
+        this.newText='';//當input框框按下enter以後,框框內的文字應該要清空
+       
+     }
+ }
+
+})
+
+</script>
+
+
+</body>
+</html>
